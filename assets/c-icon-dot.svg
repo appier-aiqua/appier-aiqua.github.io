@@ -1,0 +1,40 @@
+<svg id="icon-dot.svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="19" height="3" viewBox="0 0 19 3">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3 {
+        fill: #530edf;
+        fill-rule: evenodd;
+      }
+
+      .cls-1 {
+        filter: url(#filter);
+      }
+
+      .cls-2 {
+        filter: url(#filter-2);
+      }
+
+      .cls-3 {
+        filter: url(#filter-3);
+      }
+    </style>
+    <filter id="filter" x="456" y="63" width="3" height="3" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#3b344a"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+    <filter id="filter-2" x="464" y="63" width="3" height="3" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#3b344a"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+    <filter id="filter-3" x="472" y="63" width="3" height="3" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#3b344a"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <path id="楕円形_10" data-name="楕円形 10" class="cls-1" d="M457.5,63a1.5,1.5,0,1,1-1.5,1.5A1.5,1.5,0,0,1,457.5,63Zm0.007,0.014a1.486,1.486,0,1,1-1.5,1.486A1.493,1.493,0,0,1,457.507,63.014Zm0,0a1.486,1.486,0,1,1-1.5,1.486A1.493,1.493,0,0,1,457.507,63.014Z" transform="translate(-456 -63)"/>
+  <path id="楕円形_10_のコピー" data-name="楕円形 10 のコピー" class="cls-2" d="M465.5,63a1.5,1.5,0,1,1-1.5,1.5A1.5,1.5,0,0,1,465.5,63Zm0.007,0.014a1.486,1.486,0,1,1-1.5,1.486A1.493,1.493,0,0,1,465.507,63.014Zm0,0a1.486,1.486,0,1,1-1.5,1.486A1.493,1.493,0,0,1,465.507,63.014Z" transform="translate(-456 -63)"/>
+  <path id="楕円形_10_のコピー_2" data-name="楕円形 10 のコピー 2" class="cls-3" d="M473.5,63a1.5,1.5,0,1,1-1.5,1.5A1.5,1.5,0,0,1,473.5,63Zm0.007,0.014a1.486,1.486,0,1,1-1.5,1.486A1.493,1.493,0,0,1,473.507,63.014Zm0,0a1.486,1.486,0,1,1-1.5,1.486A1.493,1.493,0,0,1,473.507,63.014Z" transform="translate(-456 -63)"/>
+</svg>

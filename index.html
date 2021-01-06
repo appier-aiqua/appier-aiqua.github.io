@@ -15,7 +15,7 @@
       window.aiqUrl = `https://m.click108.com.tw/`;
       window.aiqChannelId = `1597921299`;
       
-        window.aiqLIFFId = `1532717738-04MD5AZZ`;
+        window.aiqLIFFId = `1597921299-32Xz4Mm8`;
       
     </script>
   <script>/******/ (function(modules) { // webpackBootstrap
@@ -1564,32 +1564,34 @@ try {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
+          // If no liff app or error exists in URL params, redirect immediately
+          window.alert(liff);
           _context.t1 = !liff;
 
           if (_context.t1) {
-            _context.next = 5;
+            _context.next = 6;
             break;
           }
 
-          _context.next = 4;
+          _context.next = 5;
           return regeneratorRuntime.awrap(is_private_mode());
 
-        case 4:
+        case 5:
           _context.t1 = _context.sent;
 
-        case 5:
+        case 6:
           _context.t0 = _context.t1;
 
           if (_context.t0) {
-            _context.next = 8;
+            _context.next = 9;
             break;
           }
 
           _context.t0 = searchParams.has(SEARCH_PARAMS_LIFF_ERROR);
 
-        case 8:
+        case 9:
           if (!_context.t0) {
-            _context.next = 11;
+            _context.next = 12;
             break;
           }
 
@@ -1600,15 +1602,15 @@ try {
 
           return _context.abrupt("return", redirectToDest());
 
-        case 11:
-          _context.next = 13;
+        case 12:
+          _context.next = 14;
           return regeneratorRuntime.awrap(liff.init({
             liffId: aiqLIFFId
           }));
 
-        case 13:
+        case 14:
           if (!(!liff.isInClient() && !liff.isLoggedIn())) {
-            _context.next = 19;
+            _context.next = 20;
             break;
           }
 
@@ -1616,71 +1618,71 @@ try {
           synced = Boolean(localStorage.getItem(STATE_SYNCED_KEY));
 
           if (!(synced || mode !== 'aggressive')) {
-            _context.next = 18;
+            _context.next = 19;
             break;
           }
 
           return _context.abrupt("return", redirectToDest());
 
-        case 18:
+        case 19:
           return _context.abrupt("return", liff.login({
             redirectUri: document.location.href
           }));
 
-        case 19:
+        case 20:
           token = liff.getAccessToken();
-          _context.next = 22;
+          _context.next = 23;
           return regeneratorRuntime.awrap(fetch('https://api.line.me/friendship/v1/status', {
             headers: {
               Authorization: "Bearer ".concat(token)
             }
           }));
 
-        case 22:
+        case 23:
           res = _context.sent;
-          _context.next = 25;
+          _context.next = 26;
           return regeneratorRuntime.awrap(res.json());
 
-        case 25:
+        case 26:
           _context.t2 = _context.sent;
 
           if (_context.t2) {
-            _context.next = 28;
+            _context.next = 29;
             break;
           }
 
           _context.t2 = {};
 
-        case 28:
+        case 29:
           _ref = _context.t2;
           friendFlag = _ref.friendFlag;
 
           if (friendFlag) {
-            _context.next = 35;
+            _context.next = 36;
             break;
           }
 
           destUrl.searchParams.append('aiq_id_line_not_follower', true);
           destUrl.searchParams.append('qg_not_follower', true);
-          _context.next = 42;
+          _context.next = 43;
           break;
 
-        case 35:
-          _context.next = 37;
+        case 36:
+          _context.next = 38;
           return regeneratorRuntime.awrap(liff.getProfile());
 
-        case 37:
+        case 38:
           _ref2 = _context.sent;
           userId = _ref2.userId;
           destUrl.searchParams.append('_lnuid', userId);
           destUrl.searchParams.append('_lnchid', aiqChannelId);
           destUrl.searchParams.append('aiq_id_line_not_follower', false);
 
-        case 42:
+        case 43:
           localStorage.setItem(STATE_SYNCED_KEY, true);
           redirectToDest();
 
-        case 44:
+        case 45:
         case "end":
           return _context.stop();
       }

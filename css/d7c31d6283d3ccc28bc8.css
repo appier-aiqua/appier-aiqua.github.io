@@ -1,0 +1,13 @@
+:root {
+  --md-theme-default-primary: #FF77A6 !important;
+  --md-theme-default-accent: #231815 !important;
+  --md-theme-default-accent-on-background: #231815 !important;
+}
+
+.product-card {
+  min-width: 200px;
+  margin: 4px;
+  height: 400px;
+  display: inline-block;
+  vertical-align: top;
+}

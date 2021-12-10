@@ -1061,7 +1061,7 @@
         created() {
             this.persona = sessionStorage.getItem('persona') ? sessionStorage.getItem('persona') : 'newUser';
             console.log('PS script initialized, the persona is', this.persona);
-            axios.get('https://appier-px-mart.bitbucket.io/recommendation.json').then(({ data }) => {
+            axios.get('https://appier-aiqua.github.io/recommendation.json').then(({ data }) => {
                 this.recommendations = data;
                 this.clickPersona(this.persona);
             }, err => {

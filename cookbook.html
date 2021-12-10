@@ -1,0 +1,853 @@
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <link rel="icon" href="https://dy0t2d5ujjdfo.cloudfront.net/favicon.ico">
+    <title>好菜食譜-來全聯 買進美好生活</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://dy0t2d5ujjdfo.cloudfront.net/assets/css/chunk-vendors.784eac1c.css" rel="stylesheet">
+    <link href="https://dy0t2d5ujjdfo.cloudfront.net/assets/css/app.2eab6c35.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script type="text/javascript">
+        !function (q, g, r, a, p, h, js) {
+            if (q.qg) return;
+            js = q.qg = function () {
+                js.callmethod ? js.callmethod.call(js, arguments) : js.queue.push(arguments);
+            };
+            js.queue = [];
+            p = g.createElement(r); p.async = !0; p.src = a; h = g.getElementsByTagName(r)[0];
+            h.parentNode.insertBefore(p, h);
+        }(window, document, 'script', 'https://cdn.qgr.ph/qgraph.7e196a3534e74c71d189.js');
+    </script>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.1027.0" data-gr-ext-installed="">
+    <div id="app">
+        <div id="app">
+            <div id="webHight" data-v-b4ba2a6c="">
+                <div id="Page-header" data-v-b4ba2a6c="">
+                    <div class="BannerAds noprint" data-v-b4ba2a6c="">
+                        <ul data-v-b4ba2a6c="">
+                            <li data-v-b4ba2a6c="">
+                                <div class="push-box" data-v-b4ba2a6c="">
+                                    <div class="push-content" data-v-b4ba2a6c="" style="top: 16px;">
+                                        <div class="push-content-a" data-v-b4ba2a6c="">
+                                            <a data-v-b4ba2a6c="">
+                                                <span>Appier Demo for PX Mart，目前的使用者為{{recommendation.name}}，</span>
+                                                <span @click="clickSelectPersona()"
+                                                    style="cursor: pointer;">切換使用者</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="logo_search" data-v-b4ba2a6c="">
+                        <div class="warp_auto" data-v-b4ba2a6c="">
+                            <div class="logo_left" data-v-b4ba2a6c="">
+                                <div class="fold_Menu" data-v-b4ba2a6c=""><img
+                                        src="https://dy0t2d5ujjdfo.cloudfront.net/assets/img/foldMenu.d152ff32.svg"
+                                        alt="" data-v-b4ba2a6c=""></div>
+                                <div class="logo_word" data-v-b4ba2a6c=""><a aria-current="page" href="/"
+                                        class="router-link-active router-link-exact-active" data-v-b4ba2a6c=""><img
+                                            src="https://dy0t2d5ujjdfo.cloudfront.net/assets/img/word.251e672b.svg"
+                                            alt="" data-v-b4ba2a6c=""></a></div>
+                                <div class="search_input" data-v-b4ba2a6c="">
+                                    <div class="search_input_bg" data-v-b4ba2a6c=""></div>
+                                    <div class="search_input_nr" data-v-b4ba2a6c="">
+                                        <ul class="search-flex" data-v-b4ba2a6c="">
+                                            <input type="text" placeholder="請輸入關鍵字或活動名稱" data-v-b4ba2a6c="">
+                                            <li class="search-images" data-v-b4ba2a6c="">
+                                                <img src="https://dy0t2d5ujjdfo.cloudfront.net/assets/img/search.ac2c1470.svg"
+                                                    alt="" data-v-b4ba2a6c="">
+                                            </li>
+                                        </ul>
+                                        <ul class="search_keyword" data-v-b4ba2a6c="">
+                                            <li data-v-b4ba2a6c="">關鍵字：</li>
+                                            <li class="keyword" data-v-b4ba2a6c="">
+                                                <span data-v-b4ba2a6c="" v-for="keyword in recommendation.keywords">
+                                                    <a v-bind:href="'https://dy0t2d5ujjdfo.cloudfront.net/#/search-result/' + keyword"
+                                                        data-v-b4ba2a6c="">{{keyword}}</a>
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="search_blue" data-v-b4ba2a6c=""><img
+                                        src="https://dy0t2d5ujjdfo.cloudfront.net/assets/img/close-blue.bae78913.svg"
+                                        alt="" data-v-b4ba2a6c=""></div>
+                            </div>
+                            <div class="logo_right" data-v-b4ba2a6c=""><a href="https://shop.pxmart.com.tw/?lang=zh-TW"
+                                    target="_blank" data-v-b4ba2a6c=""><img class="pxgo"
+                                        src="https://dy0t2d5ujjdfo.cloudfront.net/assets/img/pxgo.8117ade5.png" alt=""
+                                        data-v-b4ba2a6c=""><span data-v-b4ba2a6c="">全聯線上購</span></a></div>
+                        </div>
+                    </div>
+                    <div class="NavMenu" data-v-b4ba2a6c="">
+                        <div class="NavMenu-maskLayer" data-v-b4ba2a6c=""></div>
+                        <div class="NavMenu-background scrollbar" data-v-b4ba2a6c="" style="height: 24px;">
+                            <div class="closeMenu" data-v-b4ba2a6c=""></div>
+                            <div class="Menu-gather" data-v-b4ba2a6c="">
+                                <div class="MenuNum MenuNo-border" data-v-b4ba2a6c="">
+                                    <ul class="main-menu" data-v-b4ba2a6c="">
+                                        <li data-v-b4ba2a6c="">
+                                            <a href="https://dy0t2d5ujjdfo.cloudfront.net/#/life-will" class="menu-name"
+                                                data-v-b4ba2a6c="">生活誌</a>
+                                            <em class="arrows-bottom arrows arrows-top" data-v-b4ba2a6c=""></em>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="MenuNum" data-v-b4ba2a6c="">
+                                    <ul class="main-menu" data-v-b4ba2a6c="">
+                                        <li data-v-b4ba2a6c="">
+                                            <a href="cookbook-list.html" class="menu-name" data-v-b4ba2a6c="">全聯食譜</a>
+                                            <em class="arrows-bottom arrows arrows-top" data-v-b4ba2a6c=""></em>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="MenuNum" data-v-b4ba2a6c="">
+                                    <ul class="main-menu" data-v-b4ba2a6c="">
+                                        <li data-v-b4ba2a6c="">
+                                            <a href="https://dy0t2d5ujjdfo.cloudfront.net/#/activity-list"
+                                                class="menu-name" data-v-b4ba2a6c="">最新活動</a>
+                                            <em class="arrows-bottom arrows arrows-top" data-v-b4ba2a6c=""></em>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="MenuNum" data-v-b4ba2a6c="">
+                                    <ul class="main-menu" data-v-b4ba2a6c="">
+                                        <li data-v-b4ba2a6c="">
+                                            <a href="https://dy0t2d5ujjdfo.cloudfront.net/#/fresh" class="menu-name"
+                                                data-v-b4ba2a6c="">全聯生鮮</a>
+                                            <em class="arrows-bottom arrows arrows-top" data-v-b4ba2a6c=""></em>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="MenuNum" data-v-b4ba2a6c="">
+                                    <ul class="main-menu" data-v-b4ba2a6c="">
+                                        <li data-v-b4ba2a6c=""><a
+                                                href="https://dy0t2d5ujjdfo.cloudfront.net/#/exclusive"
+                                                class="menu-name" data-v-b4ba2a6c="">獨家商品</a><em
+                                                class="arrows-bottom arrows arrows-top" data-v-b4ba2a6c=""></em></li>
+                                    </ul>
+                                </div>
+                                <div class="MenuNum" data-v-b4ba2a6c="">
+                                    <ul class="main-menu" data-v-b4ba2a6c="">
+                                        <li data-v-b4ba2a6c=""><a href="https://dy0t2d5ujjdfo.cloudfront.net/#/customer"
+                                                class="menu-name" data-v-b4ba2a6c="">客戶服務</a><em
+                                                class="arrows-bottom arrows arrows-top" data-v-b4ba2a6c=""></em></li>
+                                    </ul>
+                                </div>
+                                <div class="MenuNum" data-v-b4ba2a6c="">
+                                    <ul class="main-menu" data-v-b4ba2a6c="">
+                                        <li data-v-b4ba2a6c=""><a href="https://dy0t2d5ujjdfo.cloudfront.net/#/shopList"
+                                                class="menu-name" data-v-b4ba2a6c="">門市搜尋</a><em
+                                                class="arrows-bottom arrows arrows-top" data-v-b4ba2a6c=""></em></li>
+                                    </ul>
+                                </div>
+                                <div class="MenuNum" data-v-b4ba2a6c="">
+                                    <ul class="main-menu" data-v-b4ba2a6c="">
+                                        <li data-v-b4ba2a6c=""><a
+                                                href="https://dy0t2d5ujjdfo.cloudfront.net/#/announcement"
+                                                class="menu-name" data-v-b4ba2a6c="">公告專區</a><em
+                                                class="arrows-bottom arrows arrows-top" data-v-b4ba2a6c=""></em></li>
+                                    </ul>
+                                </div>
+                                <div class="MenuNum MenuShow" data-v-b4ba2a6c="">
+                                    <ul class="main-menu" data-v-b4ba2a6c="">
+                                        <li data-v-b4ba2a6c=""><a href="https://dy0t2d5ujjdfo.cloudfront.net/#/aboutUs"
+                                                class="menu-name" data-v-b4ba2a6c="">關於我們</a><em
+                                                class="arrows-bottom arrows arrows-top" data-v-b4ba2a6c=""></em></li>
+                                    </ul>
+                                </div>
+                                <div class="MenuNum special-Menu MenuShow" data-v-b4ba2a6c="">
+                                    <ul class="main-menu" data-v-b4ba2a6c="">
+                                        <li data-v-b4ba2a6c=""><a aria-current="page"
+                                                href="https://dy0t2d5ujjdfo.cloudfront.net/#/index"
+                                                class="router-link-active router-link-exact-active menu-name"
+                                                data-v-b4ba2a6c="">首頁</a><em class="arrows-bottom arrows arrows-top"
+                                                data-v-b4ba2a6c=""></em></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="pxgo-icon" data-v-b4ba2a6c="">
+                                <a href="https://shop.pxmart.com.tw/?lang=zh-TW" target="_blank" data-v-b4ba2a6c="">
+                                    <img src="https://dy0t2d5ujjdfo.cloudfront.net/assets/img/Bitmap-1.28f6e791.png"
+                                        alt="" data-v-b4ba2a6c="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="main-content" data-v-b4ba2a6c="" style="margin-top: 0px;">
+                    <div class="cookbook-detail-box grey-bg">
+                        <div class="content-bg noprint">
+                            <div class="baicai"></div>
+                            <div class="tudou"></div>
+                            <div class="qiezi"></div>
+                            <div class="xihongshi"></div>
+                            <div class="mogu"></div>
+                        </div>
+                        <div class="common-width">
+                            <div class="breadCrumbs">
+                                <a href="cookbook-list.html">好菜食譜</a>
+                                <a>{{cookbook.recipe_name}}</a>
+                            </div>
+                            <div class="cookbook-intro" style="display: flex;">
+                                <div class="left">
+                                    <div class="top-swiper">
+                                        <div class="swiper-container ">
+                                            <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
+                                                <div class="swiper-slide cookbook-item swiper-slide-active"
+                                                    style="width: 559px;">
+                                                    <div class="img-box">
+                                                        <img v-bind:src="cookbook.recipe_main_photo_name">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-pagination-top swiper-pagination-clickable swiper-pagination-bullets"
+                                        style="display: none;">
+                                        <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
+                                    </div>
+                                </div>
+                                <div class="right">
+                                    <h2>{{cookbook.recipe_name}}</h2>
+                                    <div class="tags">
+                                        <span v-for="tag in Object.values(cookbook.recipe_tag)">#{{tag}}</span>
+                                    </div>
+                                    <div class="btn-box">
+                                        <a href="#preparation">
+                                            <button>食材準備</button>
+                                        </a>
+                                        <a href="#step">
+                                            <button class="active">料理步驟</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="recommended-recipe">
+                                <div class="sub-title"><span>推薦食譜</span><i class="top-icon"></i></div>
+                                <div class="swiper-box cookbook-list">
+                                    <div id="recommendationRecipes"
+                                        class="swiper-container swiper-container-pointer-events" style="display: flex;">
+                                        <div class="swiper-wrapper">
+                                            <div v-for="recipe in recommendationRecipes"
+                                                class="swiper-slide cookbook-slide" style="margin-right: 15px;">
+                                                <a v-bind:href="'cookbook.html?recipd_id=' + recipe.recipd_id">
+                                                    <div class="cookbook img-item">
+                                                        <div>
+                                                            <img v-bind:src="recipe.recipe_main_photo_name">
+                                                        </div>
+                                                        <div class="info">
+                                                            <h2>{{recipe.recipe_name}}</h2>
+                                                            <div class="attr">
+                                                                <div class="icon"><img
+                                                                        src="https://dy0t2d5ujjdfo.cloudfront.net/assets/img/tableware.573926ef.svg">
+                                                                </div>
+                                                                <div class="name">準備食材</div>
+                                                                <div class="unit">
+                                                                    {{Object.keys(recipe.good_ingredient).length}} 樣
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="pagination-cookbook-list swiper-pagination-clickable swiper-pagination-bullets"
+                                        style="display: none;"><span
+                                            class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
+                                    </div>
+                                    <div class="small-prev cookbook-item-prev"></div>
+                                    <div class="small-next cookbook-item-next"></div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="ingredients-prepare">
+                                <div id="preparation" class="sub-title">
+                                    <span>食材準備</span><i class="top-icon"></i>
+                                </div>
+                                <div class="ingredients-prepare-content" style="display: flex;">
+                                    <div class="ingredients-prepare-item">
+                                        <h3>食材</h3>
+                                        <ul>
+                                            <li v-for="(ingredient, index) in cookbook.good_ingredients"
+                                                style="display: flex;">
+                                                <div class="img-box">
+                                                    <img v-bind:src="ingredient.image">
+                                                </div>
+                                                <div class="info">
+                                                    <div class="name">
+                                                        {{index+1}}. {{ingredient.name}}
+                                                    </div>
+                                                    <div class="unit">
+                                                        {{ingredient.portion}}
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="ingredients-prepare-item">
+                                        <h3>調味料</h3>
+                                        <ul>
+                                            <li v-for="(seasoning, index) in cookbook.seasonings"
+                                                style="display: flex;">
+                                                <div class="img-box"><img
+                                                        src="http://dy0t2d5ujjdfo.cloudfront.net/Api/Images/Recipes/default.gif">
+                                                </div>
+                                                <div class="info">
+                                                    <div class="name">
+                                                        {{index+1}}. {{seasoning.name}}
+                                                    </div>
+                                                    <div class="unit">{{seasoning.portion}}</div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="arrange-steps">
+                                <div id="step" class="sub-title">
+                                    <span>料理步驟</span>
+                                    <i class="top-icon"></i>
+                                </div>
+                                <ul>
+                                    <li v-for="(step, index) in cookbook.steps" class="has-image">
+                                        <h3><span>步驟{{index+1}}.
+                                                <img v-bind:src="step.image">
+                                        </h3>
+                                        <div class="text">{{step.name}}</div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div><input id="copy-input" class="noprint" style="opacity: 0; position: absolute;">
+                    <div class="common-share noprint">
+                        <ul>
+                            <li class="share-fb"></li>
+                            <li class="share-pigeon"></li>
+                            <li class="printing"></li>
+                            <li class="send-email"></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="information" data-v-b4ba2a6c="">
+                    <div class="warp_auto" data-v-b4ba2a6c="">
+                        <div class="information-images" data-v-b4ba2a6c=""></div>
+                        <div class="information-title" data-v-b4ba2a6c=""><span class="title-weight-bold"
+                                data-v-b4ba2a6c="">找不到想要的資訊嗎？</span><span class="subhead"
+                                data-v-b4ba2a6c="">讓我們幫助您</span></div>
+                        <div class="information-service" data-v-b4ba2a6c="">
+                            <ul data-v-b4ba2a6c="">
+                                <li data-v-b4ba2a6c=""><a href="https://dy0t2d5ujjdfo.cloudfront.net/#/life-will"
+                                        data-v-b4ba2a6c=""><img
+                                            src="https://dy0t2d5ujjdfo.cloudfront.net/assets/img/cart.fb812ee1.svg"
+                                            alt="" data-v-b4ba2a6c=""></a></li>
+                                <li class="service-title" data-v-b4ba2a6c=""><a
+                                        href="https://dy0t2d5ujjdfo.cloudfront.net/#/life-will"
+                                        data-v-b4ba2a6c="">找商品</a></li>
+                                <li class="service-subhead" data-v-b4ba2a6c=""><a
+                                        href="https://dy0t2d5ujjdfo.cloudfront.net/#/life-will"
+                                        data-v-b4ba2a6c="">全聯商品總整理</a></li>
+                                <li class="service-content" data-v-b4ba2a6c=""><a
+                                        href="https://dy0t2d5ujjdfo.cloudfront.net/#/life-will" data-v-b4ba2a6c=""><span
+                                            data-v-b4ba2a6c="">生活誌</span></a><a
+                                        href="https://dy0t2d5ujjdfo.cloudfront.net/#/life-will" data-v-b4ba2a6c=""><span
+                                            data-v-b4ba2a6c="">本檔必買</span></a></li>
+                            </ul>
+                            <ul data-v-b4ba2a6c="">
+                                <li data-v-b4ba2a6c=""><a href="https://dy0t2d5ujjdfo.cloudfront.net/#/activity-list"
+                                        data-v-b4ba2a6c=""><img
+                                            src="https://dy0t2d5ujjdfo.cloudfront.net/assets/img/date.f4bddbad.svg"
+                                            alt="" data-v-b4ba2a6c=""></a></li>
+                                <li class="service-title" data-v-b4ba2a6c=""><a
+                                        href="https://dy0t2d5ujjdfo.cloudfront.net/#/activity-list"
+                                        data-v-b4ba2a6c="">找活動</a></li>
+                                <li class="service-subhead" data-v-b4ba2a6c=""><a
+                                        href="https://dy0t2d5ujjdfo.cloudfront.net/#/activity-list"
+                                        data-v-b4ba2a6c="">行銷活動報你知</a></li>
+                                <li class="service-content" data-v-b4ba2a6c=""><a
+                                        href="https://dy0t2d5ujjdfo.cloudfront.net/#/activity-list"
+                                        data-v-b4ba2a6c=""><span data-v-b4ba2a6c="">點換購</span></a><a
+                                        href="https://dy0t2d5ujjdfo.cloudfront.net/#/activity-list"
+                                        data-v-b4ba2a6c=""><span data-v-b4ba2a6c="">PX
+                                            PAY</span></a>
+                                </li>
+                            </ul>
+                            <ul data-v-b4ba2a6c="">
+                                <li data-v-b4ba2a6c=""><a href="https://dy0t2d5ujjdfo.cloudfront.net/#/shopList"
+                                        data-v-b4ba2a6c=""><img
+                                            src="https://dy0t2d5ujjdfo.cloudfront.net/assets/img/map.36e0ccb2.svg"
+                                            alt="" data-v-b4ba2a6c=""></a></li>
+                                <li class="service-title" data-v-b4ba2a6c=""><a
+                                        href="https://dy0t2d5ujjdfo.cloudfront.net/#/shopList"
+                                        data-v-b4ba2a6c="">找店家</a></li>
+                                <li class="service-subhead" data-v-b4ba2a6c=""><a
+                                        href="https://dy0t2d5ujjdfo.cloudfront.net/#/shopList"
+                                        data-v-b4ba2a6c="">全台店家幫你搜</a></li>
+                            </ul>
+                            <ul class="no-cursor" data-v-b4ba2a6c="">
+                                <li data-v-b4ba2a6c=""><img
+                                        src="https://dy0t2d5ujjdfo.cloudfront.net/assets/img/service.212f6bc3.svg"
+                                        alt="" data-v-b4ba2a6c=""></li>
+                                <li class="service-title" data-v-b4ba2a6c="">找客服</li>
+                                <li class="service-content" data-v-b4ba2a6c=""><a href="tel:0800-010-178"
+                                        data-v-b4ba2a6c="">0800-010-178</a></li>
+                                <li class="service-content" data-v-b4ba2a6c=""><a href="tel:02-2533-7700"
+                                        data-v-b4ba2a6c="">02-2533-7700</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer" id="footer" data-v-b4ba2a6c="">
+                    <div class="footer-width" data-v-b4ba2a6c="">
+                        <div class="application" data-v-b4ba2a6c="">
+                            <div class="application-left" data-v-b4ba2a6c="">
+                                <ul data-v-b4ba2a6c="">
+                                    <li data-v-b4ba2a6c=""><img
+                                            src="https://dy0t2d5ujjdfo.cloudfront.net/assets/img/word-white.b5e6f7b5.svg"
+                                            alt="" data-v-b4ba2a6c=""></li>
+                                </ul>
+                                <ul class="association" data-v-b4ba2a6c="">
+                                    <li data-v-b4ba2a6c="">社群：</li>
+                                    <li data-v-b4ba2a6c=""><a id="Facebook"
+                                            href="https://www.facebook.com/pxmartchannel/" target="_blank"
+                                            data-v-b4ba2a6c=""><img
+                                                src="https://dy0t2d5ujjdfo.cloudfront.net/assets/img/fb.86b9e6f9.svg"
+                                                alt="" data-v-b4ba2a6c=""></a><a id="LINE"
+                                            href="https://liff.line.me/1645278921-kWRPP32q?accountId=089xckix&amp;openerPlatform=native&amp;openerKey=unifiedSearch#mst_challenge=-5ENOUavB4NV5NgmkoCgcjv54S0Q3DT7UZZ4KaqhZi0"
+                                            target="_blank" data-v-b4ba2a6c=""><img
+                                                src="https://dy0t2d5ujjdfo.cloudfront.net/assets/img/line.fce16873.svg"
+                                                alt="" data-v-b4ba2a6c=""></a><a id="youtube"
+                                            href="https://www.youtube.com/channel/UCREDuMP2Ta1Hj43ZqlPX6YA"
+                                            target="_blank" data-v-b4ba2a6c=""><img
+                                                src="https://dy0t2d5ujjdfo.cloudfront.net/assets/img/yb.d22d1570.svg"
+                                                alt="" data-v-b4ba2a6c=""></a><a
+                                            href="https://www.instagram.com/pxmart/?hl=zh-tw" target="_blank"
+                                            data-v-b4ba2a6c=""><img
+                                                src="https://dy0t2d5ujjdfo.cloudfront.net/assets/img/ig.2b72c90f.svg"
+                                                alt="" data-v-b4ba2a6c=""></a></li>
+                                </ul>
+                            </div>
+                            <div class="application-right" data-v-b4ba2a6c="">
+                                <ul data-v-b4ba2a6c="">
+                                    <li data-v-b4ba2a6c="">下載 APP：</li>
+                                    <li data-v-b4ba2a6c=""><a id="IOSAPP"
+                                            href="https://service.pxpay.com.tw/redirect_page/" target="_blank"
+                                            data-v-b4ba2a6c=""><img
+                                                src="https://dy0t2d5ujjdfo.cloudfront.net/assets/img/appstroe.061709f3.svg"
+                                                alt="" data-v-b4ba2a6c=""></a><a id="AOSAPP"
+                                            href="https://play.google.com/store/apps/details?id=com.pxmart.android&amp;hl=zh_TW&amp;gl=US"
+                                            target="_blank" data-v-b4ba2a6c=""><img
+                                                src="https://dy0t2d5ujjdfo.cloudfront.net/assets/img/googleplay.01964647.svg"
+                                                alt="" data-v-b4ba2a6c=""></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="blogroll" data-v-b4ba2a6c="">
+                            <div data-v-b4ba2a6c="">
+                                <p data-v-b4ba2a6c=""><a href="https://dy0t2d5ujjdfo.cloudfront.net/#/life-will"
+                                        data-v-b4ba2a6c="" style="color: rgb(255, 255, 255);">生活誌</a></p>
+                                <span data-v-b4ba2a6c=""><a
+                                        href="https://dy0t2d5ujjdfo.cloudfront.net/#/life-will?open=true"
+                                        data-v-b4ba2a6c="">當期ＤＭ</a></span><span data-v-b4ba2a6c=""><a
+                                        href="https://dy0t2d5ujjdfo.cloudfront.net/#/life-will"
+                                        data-v-b4ba2a6c="">預購誌</a></span>
+                            </div>
+                            <div data-v-b4ba2a6c="">
+                                <p data-v-b4ba2a6c=""><a href="https://dy0t2d5ujjdfo.cloudfront.net/#/cookbook-list"
+                                        data-v-b4ba2a6c="" style="color: rgb(255, 255, 255);">全聯食譜</a></p>
+                                <span data-v-b4ba2a6c=""><a
+                                        href="https://dy0t2d5ujjdfo.cloudfront.net/#/cookbook-list?type=0"
+                                        data-v-b4ba2a6c="">最新食譜</a></span><span data-v-b4ba2a6c=""><a
+                                        href="https://dy0t2d5ujjdfo.cloudfront.net/#/cookbook-list?type=1"
+                                        data-v-b4ba2a6c="">食譜料理</a></span><span data-v-b4ba2a6c=""><a
+                                        href="https://dy0t2d5ujjdfo.cloudfront.net/#/cookbook-list?type=2"
+                                        data-v-b4ba2a6c="">爸爸回家做晚飯</a></span>
+                            </div>
+                            <div data-v-b4ba2a6c="">
+                                <p data-v-b4ba2a6c=""><a href="https://dy0t2d5ujjdfo.cloudfront.net/#/fresh"
+                                        data-v-b4ba2a6c="" style="color: rgb(255, 255, 255);">全聯生鮮</a></p>
+                                <span data-v-b4ba2a6c=""><a href="https://dy0t2d5ujjdfo.cloudfront.net/#/fresh/0?type=0"
+                                        data-v-b4ba2a6c="">安心品質</a></span><span data-v-b4ba2a6c=""><a
+                                        href="https://dy0t2d5ujjdfo.cloudfront.net/#/fresh/1?type=1"
+                                        data-v-b4ba2a6c="">有機農法</a></span><span data-v-b4ba2a6c=""><a
+                                        href="https://dy0t2d5ujjdfo.cloudfront.net/#/fresh/3?type=3"
+                                        data-v-b4ba2a6c="">二廚帶你去旅行</a></span>
+                            </div>
+                            <div data-v-b4ba2a6c="">
+                                <p data-v-b4ba2a6c=""><a href="https://dy0t2d5ujjdfo.cloudfront.net/#/activity-list"
+                                        data-v-b4ba2a6c="" style="color: rgb(255, 255, 255);">最新活動</a></p>
+                                <span data-v-b4ba2a6c=""><a
+                                        href="https://dy0t2d5ujjdfo.cloudfront.net/#/activity-list?type=10"
+                                        data-v-b4ba2a6c="">檔期活動</a></span><span data-v-b4ba2a6c=""><a
+                                        href="https://dy0t2d5ujjdfo.cloudfront.net/#/activity-list?type=4"
+                                        data-v-b4ba2a6c="">印花與活動積分</a></span><span data-v-b4ba2a6c=""><a
+                                        href="https://dy0t2d5ujjdfo.cloudfront.net/#/activity-list?type=3"
+                                        data-v-b4ba2a6c="">PXPAY與信用卡</a></span><span data-v-b4ba2a6c=""><a
+                                        href="https://dy0t2d5ujjdfo.cloudfront.net/#/activity-list?type=8"
+                                        data-v-b4ba2a6c="">預購</a></span><span data-v-b4ba2a6c=""><a
+                                        href="https://dy0t2d5ujjdfo.cloudfront.net/#/activity-list?type=-1"
+                                        data-v-b4ba2a6c="">下檔活動</a></span>
+                            </div>
+                            <div data-v-b4ba2a6c="">
+                                <p data-v-b4ba2a6c=""><a href="https://dy0t2d5ujjdfo.cloudfront.net/#/exclusive"
+                                        data-v-b4ba2a6c="" style="color: rgb(255, 255, 255);">獨家商品</a></p>
+                                <span data-v-b4ba2a6c=""><a href="http://event.pxmart.com.tw/offcoffee/" target="_blank"
+                                        data-v-b4ba2a6c="">OFF COFFEE</a></span><span data-v-b4ba2a6c=""><a
+                                        href="https://dy0t2d5ujjdfo.cloudfront.net/#/exclusive/1" data-v-b4ba2a6c="">WE
+                                        SWEET</a></span><span data-v-b4ba2a6c=""><a
+                                        href="https://dy0t2d5ujjdfo.cloudfront.net/#/exclusive/2"
+                                        data-v-b4ba2a6c="">READ
+                                        BREAD</a></span><span data-v-b4ba2a6c=""><a
+                                        href="http://event.pxmart.com.tw/offcoffee/" target="_blank"
+                                        data-v-b4ba2a6c="">阪急麵包</a></span><span data-v-b4ba2a6c=""><a
+                                        href="http://event.pxmart.com.tw/offcoffee/" target="_blank"
+                                        data-v-b4ba2a6c="">善美的</a></span><span data-v-b4ba2a6c=""><a
+                                        href="http://event.pxmart.com.tw/activity/delifood/" target="_blank"
+                                        data-v-b4ba2a6c="">美味堂</a></span><span data-v-b4ba2a6c=""><a
+                                        href="http://event.pxmart.com.tw/offcoffee/" target="_blank"
+                                        data-v-b4ba2a6c="">生活良好</a></span><span data-v-b4ba2a6c=""><a
+                                        href="https://www.freebear.com.tw/?ladosidg=18155&amp;icmpid=AD012"
+                                        target="_blank" data-v-b4ba2a6c="">福利熊樂園</a></span><span data-v-b4ba2a6c=""><a
+                                        href="https://event.pxpay.com.tw/activity/WINE/" target="_blank"
+                                        data-v-b4ba2a6c="">紅酒知識書</a></span>
+                            </div>
+                            <div data-v-b4ba2a6c="">
+                                <p data-v-b4ba2a6c="">
+                                    <a href="https://dy0t2d5ujjdfo.cloudfront.net/#/customer" data-v-b4ba2a6c=""
+                                        style="color: rgb(255, 255, 255);">客戶服務</a>
+                                </p>
+                                <span data-v-b4ba2a6c="">
+                                    <a href="https://dy0t2d5ujjdfo.cloudfront.net/#/card-server"
+                                        data-v-b4ba2a6c="">卡友服務</a>
+                                </span>
+                                <span data-v-b4ba2a6c="">
+                                    <a href="https://dy0t2d5ujjdfo.cloudfront.net/#/announcement"
+                                        data-v-b4ba2a6c="">公告專區</a>
+                                </span>
+                                <span data-v-b4ba2a6c="">
+                                    <a href="https://dy0t2d5ujjdfo.cloudfront.net/#/question"
+                                        data-v-b4ba2a6c="">常見問題</a>
+                                </span>
+                                <span data-v-b4ba2a6c="">
+                                    <a href="https://dy0t2d5ujjdfo.cloudfront.net/#/teaching"
+                                        data-v-b4ba2a6c="">全聯APP教學</a>
+                                </span>
+                                <span data-v-b4ba2a6c="">
+                                    <a href="https://dy0t2d5ujjdfo.cloudfront.net/#/giftCertificates"
+                                        data-v-b4ba2a6c="">全聯禮劵</a>
+                                </span>
+                                <span data-v-b4ba2a6c="">
+                                    <a href="https://dy0t2d5ujjdfo.cloudfront.net/#/contactUs"
+                                        data-v-b4ba2a6c="">聯絡我們</a>
+                                </span>
+                            </div>
+                            <div data-v-b4ba2a6c="">
+                                <p data-v-b4ba2a6c=""><a href="https://dy0t2d5ujjdfo.cloudfront.net/#/aboutUs"
+                                        data-v-b4ba2a6c="" style="color: rgb(255, 255, 255);">關於我們</a></p>
+                                <span data-v-b4ba2a6c="">
+                                    <a href="https://dy0t2d5ujjdfo.cloudfront.net/#/advertising"
+                                        data-v-b4ba2a6c="">廣告專區</a>
+                                </span>
+                                <span data-v-b4ba2a6c="">
+                                    <a href="http://hr.pxmart.com.tw/" target="_blank" rel="noopener noreferrer"
+                                        data-v-b4ba2a6c="">公司概況</a>
+                                </span>
+                                <span data-v-b4ba2a6c="">
+                                    <a href="https://dy0t2d5ujjdfo.cloudfront.net/#/news" data-v-b4ba2a6c="">新聞專區</a>
+                                </span>
+                                <span data-v-b4ba2a6c="">
+                                    <a href="https://dy0t2d5ujjdfo.cloudfront.net/#/aboutUsStep"
+                                        data-v-b4ba2a6c="">關於我們</a>
+                                </span>
+                                <span data-v-b4ba2a6c="">
+                                    <a href="https://dy0t2d5ujjdfo.cloudfront.net/#/responsibility"
+                                        data-v-b4ba2a6c="">企業社會責任</a>
+                                </span>
+                            </div>
+                            <div data-v-b4ba2a6c="">
+                                <p data-v-b4ba2a6c="">
+                                    <span data-v-b4ba2a6c="">其他</span>
+                                </p>
+                                <span data-v-b4ba2a6c="">
+                                    <a href="https://www.freebear.com.tw/" target="_blank" rel="noopener noreferrer"
+                                        data-v-b4ba2a6c="">福利熊官網</a></span>
+                                <span data-v-b4ba2a6c="">
+                                    <a href="https://dy0t2d5ujjdfo.cloudfront.net/#/calendar"
+                                        data-v-b4ba2a6c="">消費日曆</a></span><span data-v-b4ba2a6c="">
+                                    <a href="https://dy0t2d5ujjdfo.cloudfront.net/#/privacyPolicy"
+                                        data-v-b4ba2a6c="">隱私權政策</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="copyright" data-v-b4ba2a6c="">
+                        <div data-v-b4ba2a6c="">
+                            <span data-v-b4ba2a6c="">全聯實業股份有限公司版權所有</span>
+                        </div>
+                        <div data-v-b4ba2a6c="">
+                            <span data-v-b4ba2a6c="">客服專線：0800-010-178</span>
+                            <span data-v-b4ba2a6c="">手機另撥：02-2533-7700</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div v-if="showPersona" class="modal">
+            <div class="modal-content">
+                <div class="news-conten">
+                    <ul class="my-new-box">
+                        <li style="width: 33%">
+                            <div @click="clickPersona('newUser')" style="cursor: pointer;">
+                                <em></em>
+                                <p style="font-size:24px;padding-top:20px;color:#777777;padding-left:20px">User A
+                                </p>
+                                <img style="position:absolute;right:10px;top:10px;width:50px"
+                                    src="https://image.flaticon.com/icons/png/512/149/149071.png"></img>
+                                <p style="color:#2F96D8;padding-left:20px;padding-top:10px">Predicted Persona: New
+                                    User
+                                </p>
+                                <p style="padding:10px 20px 10px 20px">初次造訪 PX Mart 網站</p>
+                            </div>
+                        </li>
+                        <li style="width: 33%">
+                            <div @click="clickPersona('housekeeper')" style="cursor: pointer;">
+                                <em></em>
+                                <p style="font-size:24px;padding-top:20px;color:#777777;padding-left:20px">User B
+                                </p>
+                                <img style="position:absolute;right:10px;top:10px;width:50px"
+                                    src="https://image.flaticon.com/icons/png/512/4232/4232424.png"></img>
+                                <p style="color:#2F96D8;padding-left:20px;padding-top:10px">Predicted Persona: 家庭主婦
+                                </p>
+                                <p style="padding:10px 20px 10px 20px">User 定期瀏覽全聯最新優惠活動內容及每期的集點活動，主要關注家庭用品</p>
+                            </div>
+                        </li>
+                        <li style="width: 33%">
+                            <div @click="clickPersona('healthyPerson')" style="cursor: pointer;">
+                                <em></em>
+                                <p style="font-size:24px;padding-top:20px;color:#777777;padding-left:20px">User C
+                                </p>
+                                <img style="position:absolute;right:10px;top:10px;width:50px"
+                                    src="https://image.flaticon.com/icons/png/512/3703/3703360.png"></img>
+                                <p style="color:#2F96D8;padding-left:20px;padding-top:10px">Predicted Persona:
+                                    健康飲食愛好者
+                                </p>
+                                <p style="padding:10px 20px 10px 20px">User 常常瀏覽生鮮類相關商品，主要關注有機生鮮、保健食品，喜歡蔬食料理</p>
+                            </div>
+                        </li>
+                        <li style="width: 33%">
+                            <div @click="clickPersona('officeWorker')" style="cursor: pointer;">
+                                <em></em>
+                                <p style="font-size:24px;padding-top:20px;color:#777777;padding-left:20px">User D
+                                </p>
+                                <img style="position:absolute;right:10px;top:10px;width:50px"
+                                    src="https://image.flaticon.com/icons/png/512/998/998393.png"></img>
+                                <p style="color:#2F96D8;padding-left:20px;padding-top:10px">Predicted Persona: 上班族
+                                </p>
+                                <p style="padding:10px 20px 10px 20px">User 平時有在關注全聯的葡萄酒品項，喜歡西式料理</p>
+                            </div>
+                        </li>
+                        <li style="width: 33%">
+                            <div @click="clickPersona('student')" style="cursor: pointer;">
+                                <em></em>
+                                <p style="font-size:24px;padding-top:20px;color:#777777;padding-left:20px">User E
+                                </p>
+                                <img style="position:absolute;right:10px;top:10px;width:50px"
+                                    src="https://image.flaticon.com/icons/png/512/3750/3750011.png">
+                                <p style="color:#2F96D8;padding-left:20px;padding-top:10px">Predicted Persona: 學生
+                                </p>
+                                <p style="padding:10px 20px 10px 20px">User 平時會關注全聯的咖啡活動，會在全聯採購飲料跟酒類商品</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div v-if="isLoading" class="el-loading-mask is-fullscreen"
+            style="background-color: rgba(0, 0, 0, 0.4); z-index: 2024;">
+            <div class="el-loading-spinner">
+                <i class="el-icon-loading"></i>
+                <p class="el-loading-text">Loading</p>
+            </div>
+        </div>
+    </div>
+    <script src="https://dy0t2d5ujjdfo.cloudfront.net/turnjs4/jquery-1.7.min.js"></script>
+    <script src="https://dy0t2d5ujjdfo.cloudfront.net/turnjs4/turn.js"></script>
+    <script src="https://dy0t2d5ujjdfo.cloudfront.net/turnjs4/zoom.js"></script>
+    <script src="https://dy0t2d5ujjdfo.cloudfront.net/turnjs4/scissor-custom.js"></script>
+    <script src="https://dy0t2d5ujjdfo.cloudfront.net/turnjs4/jquery-ui-1.8.20.custom.min.js"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCl15TfoPvEJZn9BQhOG22XRe9mWC5dIp0&amp;language=zh-hk"></script>
+    <script src="https://dy0t2d5ujjdfo.cloudfront.net/js/markerwithlabel.js"></script>
+    <script src="https://dy0t2d5ujjdfo.cloudfront.net/assets/js/chunk-vendors.fe7f99a9.js"></script>
+    <!-- <script src="https://dy0t2d5ujjdfo.cloudfront.net/assets/js/app.f5ff6a91.js"></script> -->
+    <div aria-hidden="true" class="el-popover--plain el-popover el-popper is-light" id="el-popper-6761" role="tooltip"
+        style="width: 133px; z-index: 2001; display: none;">
+        PXPay限量25,000份(APP會員限贈乙次)
+        <div class="el-popper__arrow" data-popper-arrow=""></div>
+    </div>
+</body>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            isLoading: true,
+            showPersona: false,
+            persona: '',
+            recommendations: {},
+            recommendation: {
+                keywords: [],
+                banners: [],
+                categories: []
+            },
+            cookbook: {
+                recipe_tag: {},
+                good_ingredients: [],
+                seasonings: [],
+                steps: []
+            },
+            recommendationRecipes: []
+        },
+        methods: {
+            clickSelectPersona() {
+                this.showPersona = true;
+            },
+            clickPersona(persona) {
+                this.isLoading = true;
+                console.log('Change persona to', persona);
+                this.persona = persona;
+                sessionStorage.setItem('persona', persona);
+                this.recommendation = this.recommendations.personas[this.persona];
+                this.showPersona = false;
+
+                this.isLoading = false;
+            }
+        },
+        created() {
+            this.persona = sessionStorage.getItem('persona') ? sessionStorage.getItem('persona') : 'newUser';
+            console.log('PS script initialized, the persona is', this.persona);
+
+            let uri = window.location.search.substring(1);
+            let params = new URLSearchParams(uri);
+            let recipd_id = params.get('recipd_id');
+
+            if (!recipd_id) {
+                window.location = 'cookbook-list.html';
+            }
+
+            axios.get(`https://pxmart-poc-dot-aiqua-project-solutions.df.r.appspot.com/product?recipd_id=${recipd_id}`).then(({ data }) => {
+
+                let { recipe_name, recipe_tag, recipe_main_photo_name,
+                    good_ingredient, good_ingredient_photo, seasoning,
+                    start_cooking_desc, start_cooking_photo } = data;
+
+                let good_ingredients = Object.keys(good_ingredient).map(key => {
+                    return {
+                        name: Object.keys(good_ingredient[key])[0],
+                        portion: Object.values(good_ingredient[key])[0],
+                        image: good_ingredient_photo[`${key}_photo_name`]
+                    }
+                })
+
+                let seasonings = Object.keys(seasoning).map(key => {
+                    return {
+                        name: Object.keys(seasoning[key])[0],
+                        portion: Object.values(seasoning[key])[0]
+                    }
+                })
+
+                let steps = Object.values(start_cooking_desc).map((value, index) => {
+                    return {
+                        name: value,
+                        image: start_cooking_photo[`start_${index + 1}_photo_name`]
+                    }
+                })
+
+                console.log(data)
+
+                this.cookbook = {
+                    recipe_name,
+                    recipe_tag,
+                    recipe_main_photo_name,
+                    good_ingredients,
+                    seasonings,
+                    steps
+                };
+
+                console.log(this.cookbook)
+
+                axios.get(`https://pxmart-poc-dot-aiqua-project-solutions.df.r.appspot.com/recommend?recipd_id=${recipd_id}`).then(({ data }) => {
+
+                    this.recommendationRecipes = data;
+
+                    new Swiper("#recommendationRecipes", {
+                        autoplay: true,
+                        slidesPerView: 3,
+                        spaceBetween: 10,
+                        navigation: {
+                            nextEl: ".small-next",
+                            prevEl: ".small-prev",
+                        }
+                    });
+
+                }, err => {
+                    console.error('Error: ', err);
+                });
+
+            }, err => {
+                console.error('Error: ', err);
+            });
+
+            axios.get('https://appier-px-mart.bitbucket.io/recommendation.json').then(({ data }) => {
+                this.recommendations = data;
+                this.clickPersona(this.persona);
+            }, err => {
+                console.error('Error: ', err);
+            });
+        }
+    })
+
+</script>
+
+<style>
+    .modal {
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-content {
+        background-color: #f6f8fa;
+        margin: 15% auto;
+        padding: 20px;
+        width: 80%;
+    }
+
+    .arrange-steps li.has-image {
+        max-height: 250px;
+        margin-bottom: 106px;
+    }
+</style>
+
+</html>
